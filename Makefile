@@ -1,5 +1,4 @@
-COMPOSE_FILE = srcs/docker-compose.yml
-COMPOSE = podman compose -f $(COMPOSE_FILE)
+COMPOSE = docker compose
 
 DATA_DIR = /home/tchevall/data
 
@@ -13,10 +12,10 @@ prepare:
 
 
 up: prepare build
-	podman compose -f $(COMPOSE_FILE) up -d
+	$(COMPOSE) up -d
 
 build:
-	podman compose -f $(COMPOSE_FILE) build
+	$(COMPOSE) build
 
 down: 
 	$(COMPOSE) down

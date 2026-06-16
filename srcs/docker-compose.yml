@@ -1,6 +1,6 @@
 services:
   mariadb:
-    build: ./requirements/mariadb
+    build: ./srcs/requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
@@ -15,7 +15,7 @@ services:
       retries: 20
 
   wordpress:
-    build: ./requirements/wordpress
+    build: ./srcs/requirements/wordpress
     container_name: wordpress
     depends_on:
       mariadb:
@@ -28,7 +28,7 @@ services:
       - inception
 
   nginx:
-    build: ./requirements/nginx
+    build: ./srcs/requirements/nginx
     container_name: nginx
     depends_on:
       - wordpress
@@ -39,9 +39,20 @@ services:
     networks:
       - inception
 
-volumes:
-  mariadb_data:
-  wordpress_data:
-
 networks:
   inception:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tchevall/data/mariadb
+      o: bind
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/tchevall/data/wordpress
+      o: bind
