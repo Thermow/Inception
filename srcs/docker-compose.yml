@@ -1,6 +1,7 @@
 services:
   mariadb:
     build: ./srcs/requirements/mariadb
+    context: ./srcs/requirements/mariadb
     container_name: mariadb
     env_file:
       - .env
@@ -16,6 +17,7 @@ services:
 
   wordpress:
     build: ./srcs/requirements/wordpress
+    context: ./srcs/requirements/wordpress
     container_name: wordpress
     depends_on:
       mariadb:
@@ -29,6 +31,7 @@ services:
 
   nginx:
     build: ./srcs/requirements/nginx
+    context: ./srcs/requirements/nginx
     container_name: nginx
     depends_on:
       - wordpress
