@@ -23,6 +23,20 @@ This project relies on Docker to encapsulate services into images. Below is a co
 * Docker
 * Docker Compose
 
+### Configuration (.env)
+    You must create a `.env` file at the root of the project with the following variables. **Do not commit this file to your repository.**
+    DOMAIN_NAME=your_login.42.fr
+    DB_NAME=database_name
+    DB_USER=database_user
+    DB_PASSWORD=database_password
+    DB_ROOT_PASSWORD=root_password
+    WP_ADMIN_USER=admin_user
+    WP_ADMIN_PASSWORD=admin_password
+    WP_ADMIN_EMAIL=admin@email.com
+    WP_USER=user
+    WP_PASSWORD=user_password
+    WP_USER_EMAIL=user@email.com
+
 ### Execution
 1.  **Clone the repository:**
     ```bash
