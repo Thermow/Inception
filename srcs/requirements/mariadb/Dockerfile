@@ -15,4 +15,4 @@ RUN mkdir -p /run/mysqld \
 
 EXPOSE 3306
 
-CMD ["/entrypoint.sh"]
+CMD ["sh", "/entrypoint.sh"]
