@@ -1,7 +1,9 @@
 services:
   mariadb:
-    build: ./srcs/requirements/mariadb
-    context: ./srcs/requirements/mariadb
+    build:
+      context: ./srcs/requirements/mariadb
+      dockerfile: Dockerfile
+
     container_name: mariadb
     env_file:
       - .env
@@ -16,8 +18,9 @@ services:
       retries: 20
 
   wordpress:
-    build: ./srcs/requirements/wordpress
-    context: ./srcs/requirements/wordpress
+    build:
+      context: ./srcs/requirements/wordpress
+      dockerfile: Dockerfile
     container_name: wordpress
     depends_on:
       mariadb:
@@ -30,8 +33,9 @@ services:
       - inception
 
   nginx:
-    build: ./srcs/requirements/nginx
-    context: ./srcs/requirements/nginx
+    build:
+      context: ./srcs/requirements/nginx
+      dockerfile: Dockerfile
     container_name: nginx
     depends_on:
       - wordpress
