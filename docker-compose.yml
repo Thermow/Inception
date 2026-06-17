@@ -3,7 +3,6 @@ services:
     build:
       context: ./srcs/requirements/mariadb
       dockerfile: Dockerfile
-
     container_name: mariadb
     env_file:
       - .env
